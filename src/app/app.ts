@@ -1,5 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { User } from '../app/pages/service/user.js' ;
 
 @Component({
   selector: 'app-root',
@@ -8,5 +9,10 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('myProject');
+  title = 'angular-crud';
+  hello: any;
+  constructor(private userService: User) {
+    this.hello = this.userService.getHello();
+    console.log(this.hello);
+  }
 }
